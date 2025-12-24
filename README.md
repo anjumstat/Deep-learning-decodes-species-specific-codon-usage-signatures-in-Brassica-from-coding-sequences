@@ -85,7 +85,7 @@ bash
 pip install pandas scikit-learn matplotlib seaborn umap-learn
 # Data Format
 Note: The same csv files data will be used to prouduce PCA, t-SNE and UMAP plts
-# 06_dropout.py
+# 06_dropout.py (Dropout Neural Network)
 # Dropout Neural Network for Species Classification
 
 This script implements a Dropout-regularized Deep Neural Network (DNN) for multi-species classification using codon usage data. It performs 10-fold cross-validation to ensure robust model evaluation.
@@ -179,5 +179,56 @@ Dependencies:
 
 python
 numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow
+Leaky ReLU Neural Network for Species Classification
+# 08_Leaky_Relu.py (Leaky ReLU Neural Network)
+This script implements a neural network using Leaky ReLU activation functions for multi-species classification. Leaky ReLU prevents the "dying ReLU" problem by allowing small gradients when units are not active.
 
+Key Features:
+
+Leaky ReLU activation (α=0.01) in all hidden layers
+
+Dropout regularization (0.2 rate) for overfitting prevention
+
+10-fold cross-validation with comprehensive metrics tracking
+
+Separate test data evaluation (10% holdout)
+
+Generates both raw and normalized confusion matrices
+
+Model Architecture:
+
+Input layer → Dense(128) → LeakyReLU(0.01) → Dropout(0.2)
+
+Dense(64) → LeakyReLU(0.01) → Dropout(0.2)
+
+Dense(32) → LeakyReLU(0.01) → Dropout(0.2)
+
+Output layer: Softmax for multi-class classification
+
+Unique Features:
+
+Test Data Evaluation: Separate 10% test set evaluation not used in cross-validation
+
+Two Confusion Matrices: Raw counts and normalized percentages
+
+Complete Metrics: Both cross-validation and test set performance metrics
+
+Class Labels: Uses species names (Wheat, Rice, Barley, BD) in confusion matrices
+
+Outputs:
+
+Saved models for each fold and best model (Best_LeakyReLU_Model.h5)
+
+Cross-validation and test set confusion matrices
+
+Training/validation accuracy curves
+
+CSV files: LeakyReLU_Metrics_Avg.csv (CV) and Test_Metrics.csv
+
+Both raw and normalized confusion matrix plots
+
+Dependencies:
+
+python
+numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow
 
