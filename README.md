@@ -72,13 +72,13 @@ Pandas (pip install pandas)
 Notes Reproducibility: The script automatically sorts species by sequence count (descending) and assigns labels.
 
 Integration: Use this CSV as input for statistical analyses or visualizations (e.g., PCA, t-SNE and UMAP).
-# 03_PCA_CUB_plot.py
+# 03_PCA_CUB_plot.py (Figure 1)
 This script performs Principal Component Analysis (PCA) on codon frequency data. It creates a scatter plot where each point represents a gene sequence, colored by species. The plot displays the first two principal components with their explained variance percentages, helping identify major patterns in codon usage variation across species.
 
-# 04_t_SNE.py
+# 04_t_SNE.py (Figure 1)
 This script applies t-Distributed Stochastic Neighbor Embedding (t-SNE) for non-linear dimensionality reduction. It uses Barnes-Hut approximation for efficient computation and creates hexbin density plots to visualize gene distribution patterns. The output is saved as both PDF and PNG files with publication-ready formatting.
 
-# 05_Umap_plot.py
+# 05_Umap_plot.py (Figure 1)
 This script implements Uniform Manifold Approximation and Projection (UMAP) for visualizing high-dimensional codon usage data. With optimized parameters for biological data, it generates hexbin density plots that preserve both local and global data structure, saved as vector graphics suitable for publications.
 # Installation
 bash
@@ -479,4 +479,82 @@ Dependencies:
 
 python
 numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow
+# 13_overfitting_deduction_plot.py (Figure 3 )
+Overfitting Detection and Model Comparison Visualization
+
+This script analyzes training histories from multiple neural network models to detect and visualize overfitting patterns. It generates a comparative plot showing the accuracy gap between training and validation sets across different model architectures.
+
+Key Features:
+
+Loads and processes training history files from multiple model directories
+
+Computes the "overfitting gap": Training Accuracy - Validation Accuracy
+
+Generates multi-panel comparison plot (2 columns, variable rows)
+
+Highlights models with significant overfitting (large positive gaps)
+
+Identifies well-regularized models (gaps close to zero)
+
+Input Requirements:
+
+Base directory containing model subdirectories (E:\Bras_article\models)
+
+Each model directory should contain a history file (histories.npy or training_history.npy)
+
+History files should contain arrays for accuracy, val_accuracy, loss, and val_loss
+
+Visualization Output:
+
+Multi-plot grid comparing overfitting patterns across all models
+
+Red line showing the accuracy gap over epochs
+
+Gray dashed line at y=0 (perfect generalization reference)
+
+Each subplot labeled with model name for easy identification
+
+Detection Logic:
+
+text
+Overfitting Gap = Training Accuracy - Validation Accuracy
+- Positive values: Model is overfitting (training better than validation)
+- Near zero: Good generalization
+- Negative values: Underfitting or validation better than training (rare)
+Usage Example:
+
+bash
+python 13_overfitting_deduction_plot.py
+Expected Directory Structure:
+
+text
+E:\Bras_article\models\
+├── Dropout\
+│   └── histories.npy
+├── L2_Reg1\
+│   └── histories.npy
+├── LeakyReLU_updated\
+│   └── histories.npy
+├── Shallow\
+│   └── histories.npy
+├── MLP_Model\
+│   └── histories.npy
+├── RBFN_Updated\
+│   └── histories.npy
+└── Deepbelief\
+    └── histories.npy
+Dependencies:
+
+python
+os, numpy, matplotlib, math
+Purpose:
+This script is essential for model selection and regularization tuning. It helps identify:
+
+Which architectures are prone to overfitting
+
+Effectiveness of different regularization techniques
+
+Optimal stopping points for training
+
+Best-performing models for deployment
 
