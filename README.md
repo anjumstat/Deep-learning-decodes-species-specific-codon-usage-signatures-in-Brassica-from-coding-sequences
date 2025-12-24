@@ -288,3 +288,66 @@ Dependencies:
 
 python
 numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow
+# 10_MLP.py (Multilayer Perceptron)
+Multi-Layer Perceptron (MLP) with Leaky ReLU and L2 Regularization
+
+This script implements a sophisticated Multi-Layer Perceptron network combining Leaky ReLU activations with strong L2 regularization for robust multi-species classification. This represents the most complex architecture in the neural network comparison series.
+
+Key Features:
+
+Deep architecture with 5 layers (256-128-64-32-output)
+
+Leaky ReLU activation (α=0.1) in all hidden layers
+
+Strong L2 regularization (λ=0.01) on all dense layers
+
+Dropout regularization (0.3 rate) at each layer
+
+10-fold cross-validation for reliable performance estimation
+
+Model Architecture:
+
+Input → Dense(256, L2=0.01) → LeakyReLU(0.1) → Dropout(0.3)
+
+Dense(128, L2=0.01) → LeakyReLU(0.1) → Dropout(0.3)
+
+Dense(64, L2=0.01) → LeakyReLU(0.1) → Dropout(0.3)
+
+Dense(32, L2=0.01) → LeakyReLU(0.1) → Dropout(0.3)
+
+Output layer: Softmax for multi-class classification
+
+Unique Features:
+
+Deepest Architecture: Most layers among all neural network implementations
+
+Double Regularization: Combines L2 weight decay with dropout for maximum generalization
+
+Advanced Activation: Leaky ReLU prevents gradient vanishing in deep networks
+
+Strong Regularization: Higher L2 coefficient (0.01 vs 0.001 in L2-only model)
+
+Outputs:
+
+Saved models for each fold and best model (Best_MLP_Model.h5)
+
+Average confusion matrix plot
+
+Training/validation accuracy curves
+
+CSV file with average metrics (implied - similar to other models)
+
+NumPy files with training histories and matrices
+
+Comparison Points:
+
+Vs. Simple Networks: Tests if depth and complexity improve performance
+
+Vs. Single Regularization: Evaluates combined regularization effectiveness
+
+Computational Load: Heaviest architecture requiring most training time
+
+Dependencies:
+
+python
+numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow
