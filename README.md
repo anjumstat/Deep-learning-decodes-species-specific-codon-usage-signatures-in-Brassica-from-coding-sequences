@@ -351,3 +351,65 @@ Dependencies:
 
 python
 numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow
+# 11_RBFNN.py (Radial Basis Function) 
+Radial Basis Function Neural Network (RBFNN) for Species Classification
+
+This script implements a Radial Basis Function Neural Network, a type of neural network that uses radial basis functions as activation functions. RBFNNs are particularly effective for pattern recognition and classification tasks with well-separated clusters.
+
+Key Features:
+
+Custom RBF layer with fixed centroids using K-means clustering (50 centroids)
+
+Gaussian RBF activation with gamma parameter (γ=0.1)
+
+Follows same output format as DBN/RBFN for consistency
+
+Separate test data evaluation (10% holdout)
+
+Generates both raw and normalized confusion matrices
+
+Architecture:
+
+Custom RBFLayer: 50 centroids initialized via K-means, Gaussian RBF activation
+
+Output layer: Dense with Softmax for multi-class classification
+
+Unique Features:
+
+Fixed Centroids: Centroids determined by K-means and remain non-trainable
+
+Radial Basis Functions: Uses Gaussian activation based on distance from centroids
+
+Test Data Evaluation: Separate 10% test set evaluation
+
+Two Confusion Matrices: Raw counts and normalized percentages
+
+Class Labels: Uses species names (Wheat, Rice, Barley, BD)
+
+Technical Details:
+
+Centroids initialized using K-means clustering on training data
+
+Gaussian RBF: φ(x) = exp(-γ * ||x - μ||²) where γ=0.1
+
+Fixed centroids (non-trainable) for stability
+
+Outputs match DBN format for easy comparison
+
+Outputs:
+
+Saved models for each fold and best model (Best_RBFN_Model.h5)
+
+Cross-validation and test set confusion matrices
+
+Training/validation accuracy curves
+
+CSV files: RBFN_Metrics_Avg.csv (CV) and Test_Metrics.csv
+
+Both raw and normalized confusion matrix plots
+
+Dependencies:
+
+python
+numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow, sklearn.cluster
+
