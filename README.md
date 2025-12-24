@@ -231,4 +231,60 @@ Dependencies:
 
 python
 numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow
+# 09_Shallow.py (Shallow Neural Network)
+Shallow Neural Network for Species Classification
 
+This script implements a shallow (single hidden layer) neural network for multi-species classification. This minimalist architecture serves as a baseline comparison against deeper networks, demonstrating the effectiveness of simpler models.
+
+Key Features:
+
+Single hidden layer architecture (64 neurons)
+
+ReLU activation in hidden layer
+
+Dropout regularization (0.2 rate) for generalization
+
+10-fold cross-validation with comprehensive evaluation
+
+Large font formatting for presentation-ready plots
+
+Model Architecture:
+
+Input layer → Dense(64, ReLU) → Dropout(0.2)
+
+Output layer: Softmax for multi-class classification
+
+Unique Features:
+
+Simplified Architecture: Only one hidden layer for computational efficiency
+
+Baseline Model: Serves as reference point for comparing deeper architectures
+
+Presentation-Ready Plots: Larger fonts (size 16-20) for better visibility in presentations
+
+Thicker Plot Lines: Linewidth=4 for enhanced visual clarity
+
+Outputs:
+
+Saved models for each fold and best model (Best_Shallow_NN_Model.h5)
+
+Average confusion matrix plot
+
+Training/validation accuracy curves with enhanced visibility
+
+CSV file with average metrics (Shallow_NN_Metrics_Avg.csv)
+
+NumPy files with training histories and matrices
+
+Comparison Points:
+
+Vs. Deep Networks: Evaluates if depth significantly improves performance
+
+Vs. Regularized Networks: Tests if simpler architecture needs less regularization
+
+Computational Efficiency: Faster training due to fewer parameters
+
+Dependencies:
+
+python
+numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow
