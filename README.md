@@ -124,7 +124,58 @@ CSV file with average metrics (DO_Results.csv)
 
 NumPy files with training histories and matrices
 
-# Dependencies:
+Dependencies:
+
+python
+numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow
+# 07_DNN_L2_Reg.py (Deep Neural Network with L2 Regulrization)
+L2-Regularized Neural Network for Species Classification
+
+This script implements a Deep Neural Network with L2 regularization (weight decay) for multi-species classification using codon usage data. It combines dropout and L2 regularization techniques for improved generalization.
+
+Key Features:
+
+L2 regularization (λ=0.001) applied to all dense layers
+
+Combined with dropout regularization (0.3 rate)
+
+10-fold cross-validation with stratified sampling
+
+Early stopping with patience of 5 epochs
+
+Comprehensive performance metrics tracking
+
+Model Architecture:
+
+Input layer → Dense(128, ReLU, L2=0.001) → Dropout(0.3)
+
+Dense(64, ReLU, L2=0.001) → Dropout(0.3)
+
+Dense(32, ReLU, L2=0.001) → Dropout(0.3)
+
+Output layer: Softmax for multi-class classification
+
+Outputs:
+
+Saved models for each fold and best overall model (Best_L2_DNN_Model.h5)
+
+Average confusion matrix plot
+
+Training/validation accuracy curves
+
+CSV file with average metrics (DL2_NN_Metrics_Avg.csv)
+
+NumPy files with training histories and matrices
+
+Key Differences from Dropout-only Model:
+
+Adds L2 weight decay (0.001) to prevent large weight values
+
+Dual regularization approach for enhanced generalization
+
+Models saved with prefix L2_DropoutNN_foldX.h5
+
+Dependencies:
 
 python
 numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow
