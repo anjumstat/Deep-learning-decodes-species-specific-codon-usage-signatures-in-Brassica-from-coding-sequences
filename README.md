@@ -85,3 +85,48 @@ bash
 pip install pandas scikit-learn matplotlib seaborn umap-learn
 # Data Format
 Note: The same csv files data will be used to prouduce PCA, t-SNE and UMAP plts
+# 06_dropout.py
+# Dropout Neural Network for Species Classification
+
+This script implements a Dropout-regularized Deep Neural Network (DNN) for multi-species classification using codon usage data. It performs 10-fold cross-validation to ensure robust model evaluation.
+
+Key Features:
+
+10-fold cross-validation with stratified sampling
+
+Dropout regularization (0.3 rate) to prevent overfitting
+
+Early stopping with patience of 5 epochs
+
+Comprehensive metrics: accuracy, precision, recall, F1-score, and Matthews Correlation Coefficient
+
+Saves best model and all fold models
+
+Model Architecture:
+
+Input layer → Dense(128, ReLU) → Dropout(0.3)
+
+Dense(64, ReLU) → Dropout(0.3)
+
+Dense(32, ReLU) → Dropout(0.3)
+
+Output layer: Softmax for multi-class classification
+
+Outputs:
+
+Saved models for each fold and best overall model
+
+Average confusion matrix plot
+
+Training/validation accuracy curves
+
+CSV file with average metrics (DO_Results.csv)
+
+NumPy files with training histories and matrices
+
+# Dependencies:
+
+python
+numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow
+
+
