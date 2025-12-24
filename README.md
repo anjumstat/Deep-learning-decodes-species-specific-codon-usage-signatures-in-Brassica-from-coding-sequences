@@ -84,8 +84,8 @@ This script implements Uniform Manifold Approximation and Projection (UMAP) for 
 bash
 pip install pandas scikit-learn matplotlib seaborn umap-learn
 # Data Format
-Note: The same csv files data will be used to prouduce PCA, t-SNE and UMAP plts
-## Important Note for the following  Neural Network Codes:
+Note: The same combined_codon_frequencies_labeled.csv file data will be used to prouduce PCA, t-SNE and UMAP plts
+# Important Note for the following  Neural Network Codes:
 
 Data Preparation Update
 Before running any of the neural network classification scripts (06_dropout.py through 12_deepbelief.py), please follow these data preparation steps:
