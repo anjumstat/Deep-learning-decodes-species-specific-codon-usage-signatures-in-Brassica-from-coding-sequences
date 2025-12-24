@@ -85,6 +85,17 @@ bash
 pip install pandas scikit-learn matplotlib seaborn umap-learn
 # Data Format
 Note: The same csv files data will be used to prouduce PCA, t-SNE and UMAP plts
+## Important Note for the following  Neural Network Codes:
+
+Data Preparation Update
+Before running any of the neural network classification scripts (06_dropout.py through 12_deepbelief.py), please follow these data preparation steps:
+
+1. Modify Your CSV File:
+Original CSV Structure: Should contain Sequence_ID, Species, and Label columns
+
+Required Modification: Exclude Sequence_ID column, Species column rename Label column to Species
+
+Result: File should contain only codon frequency columns with a single Species label column 
 # 06_dropout.py (Dropout Neural Network)
 # Dropout Neural Network for Species Classification
 
@@ -412,4 +423,60 @@ Dependencies:
 
 python
 numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow, sklearn.cluster
+# 12_deepbelief.py
+Deep Belief Network (DBN) Simulation for Species Classification
+
+This script implements a Deep Belief Network-inspired architecture using stacked fully connected layers for multi-species classification. While not a true DBN with Restricted Boltzmann Machines, it simulates the deep layered structure characteristic of DBNs.
+
+Key Features:
+
+Deep architecture with 3 hidden layers (128-64-32 neurons)
+
+ReLU activation functions in all hidden layers
+
+Dropout regularization (0.2 rate) for each layer
+
+10-fold cross-validation with comprehensive evaluation
+
+Early stopping with patience of 5 epochs
+
+Model Architecture:
+
+Input layer → Dense(128, ReLU) → Dropout(0.2)
+
+Dense(64, ReLU) → Dropout(0.2)
+
+Dense(32, ReLU) → Dropout(0.2)
+
+Output layer: Softmax for multi-class classification
+
+Unique Features:
+
+DBN-Inspired Structure: Simulates the deep hierarchical feature learning of true DBNs
+
+Balanced Regularization: Moderate dropout (0.2) suitable for deep architectures
+
+Consistent Format: Follows same output structure as other models for comparison
+
+Feature Hierarchy: Captures hierarchical patterns through multiple processing layers
+
+Technical Note:
+While called "Deep Belief Network," this implementation uses standard feedforward neural networks rather than the traditional Restricted Boltzmann Machine (RBM) pretraining and fine-tuning of true DBNs. It maintains the deep layered structure that characterizes DBN architectures.
+
+Outputs:
+
+Saved models for each fold and best model (Best_DBN_Model.h5)
+
+Average confusion matrix plot
+
+Training/validation accuracy curves
+
+CSV file with average metrics (DBN_Metrics_Avg.csv)
+
+NumPy files with training histories and matrices
+
+Dependencies:
+
+python
+numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow
 
